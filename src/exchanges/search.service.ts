@@ -5,7 +5,7 @@ export class SearchService {
     async getTokenPrice(token: string, dollar: string, exchange) {
         try {
             // Получаем рыночные данные для символа
-            const ticker = await this[exchange].fetchTicker(token + dollar);
+            const ticker = await exchange.fetchTicker(token + dollar);
 
             // Проверяем, есть ли свойство 'last' в объекте ticker
             if (ticker && ticker.last) {

@@ -9,7 +9,7 @@ export class BinanceService {
         this.exchange = new ccxt.binance();
     }
 
-    async getAllTokens(): Promise<{ symbol: string; price: number }[]> {
+    async getAllTokensAndPrice(): Promise<{ symbol: string; price: number }[]> {
         const tradingPairs = await this.exchange.fetchTickers(); // Получаем данные о торговых парах
         const tokensWithUsdtPrice = Object.keys(tradingPairs)
             .filter(symbol => symbol.endsWith("/USDT"))
