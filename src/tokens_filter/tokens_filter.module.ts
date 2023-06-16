@@ -4,6 +4,7 @@ import { TelegramService } from "@src/telegram/telegram.service";
 import { BinanceService } from "@src/exchanges/binance/binance.service";
 import { CoinexService } from "@src/exchanges/coinex/coinex.service";
 import { SearchService } from "@src/exchanges/search.service";
+import { HuobiService } from "@src/exchanges/huobi/huobi.service";
 
 @Module({
     providers: [
@@ -11,7 +12,8 @@ import { SearchService } from "@src/exchanges/search.service";
         TelegramService,
         BinanceService,
         CoinexService,
-        SearchService
+        SearchService,
+        HuobiService,
     ],
     exports: [TokensFilterService]
 })

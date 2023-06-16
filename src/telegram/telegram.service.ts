@@ -30,8 +30,8 @@ export class TelegramService {
         let message = "";
 
         message += `Токен: ${tokenPrice.symbol}\n`;
-        message += `Цена на Binance: ${tokenPrice.binancePrice}\n`;
-        message += `Цена на ${tokenPrice.nameExchange}: ${tokenPrice.price}\n\n`;
+        message += `Цена на Binance:`.padEnd(18) + `${tokenPrice.binancePrice}\n`;
+        message += `Цена на ${tokenPrice.nameExchange}:`.padEnd(25 - tokenPrice.nameExchange.length) + `${tokenPrice.price}\n\n`;
 
         return message;
     }

@@ -1,16 +1,14 @@
 import { Injectable } from "@nestjs/common";
+import * as ccxt from "ccxt";
 
 @Injectable()
 export class SearchService {
-    async getTokenPrice(token: string, dollar: string, exchange) {
+    async getTokenPrice(token: string, dollar: string, exchange: ccxt.Exchange) {
         try {
-            // Получаем рыночные данные для символа
             const ticker = await exchange.fetchTicker(token + dollar);
 
-            // Проверяем, есть ли свойство 'last' в объекте ticker
             if (ticker && ticker.last) {
-                const price = ticker.last; // Извлекаем цену из рыночных данных
-
+                const price = ticker.last;
                 return price;
             }
         } catch (err) {
